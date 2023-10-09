@@ -4,125 +4,134 @@
     ViewData["Title"] = "Create a New Trading Card";
 }
 
-<h1>Create a New Trading Card</h1>
-
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="CardCreate">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="CardName" class="control-label"></label>
-                <input asp-for="CardName" class="form-control" />
-                <span asp-validation-for="CardName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardType" class="control-label"></label>
-                <input asp-for="CardType" class="form-control" />
-                <span asp-validation-for="CardType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardDescription" class="control-label"></label>
-                <input asp-for="CardDescription" class="form-control" />
-                <span asp-validation-for="CardDescription" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardEffect" class="control-label"></label>
-                <input asp-for="CardEffect" class="form-control" />
-                <span asp-validation-for="CardEffect" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardAttack1" class="control-label"></label>
-                <input asp-for="CardAttack1" class="form-control" />
-                <span asp-validation-for="CardAttack1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardAttackCost1" class="control-label"></label>
-                <input asp-for="CardAttackCost1" class="form-control" />
-                <span asp-validation-for="CardAttackCost1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardAttackDamage1" class="control-label"></label>
-                <input asp-for="CardAttackDamage1" class="form-control" />
-                <span asp-validation-for="CardAttackDamage1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardAttackEffect1" class="control-label"></label>
-                <input asp-for="CardAttackEffect1" class="form-control" />
-                <span asp-validation-for="CardAttackEffect1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardAttack2" class="control-label"></label>
-                <input asp-for="CardAttack2" class="form-control" />
-                <span asp-validation-for="CardAttack2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardAttackCost2" class="control-label"></label>
-                <input asp-for="CardAttackCost2" class="form-control" />
-                <span asp-validation-for="CardAttackCost2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardAttackDamage2" class="control-label"></label>
-                <input asp-for="CardAttackDamage2" class="form-control" />
-                <span asp-validation-for="CardAttackDamage2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardAttackEffect2" class="control-label"></label>
-                <input asp-for="CardAttackEffect2" class="form-control" />
-                <span asp-validation-for="CardAttackEffect2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardHP" class="control-label"></label>
-                <input asp-for="CardHP" class="form-control" />
-                <span asp-validation-for="CardHP" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardStage" class="control-label"></label>
-                <input asp-for="CardStage" class="form-control" />
-                <span asp-validation-for="CardStage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardRetreatCost" class="control-label"></label>
-                <input asp-for="CardRetreatCost" class="form-control" />
-                <span asp-validation-for="CardRetreatCost" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardRuleBox" class="control-label"></label>
-                <input asp-for="CardRuleBox" class="form-control" />
-                <span asp-validation-for="CardRuleBox" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardAttribute" class="control-label"></label>
-                <input asp-for="CardAttribute" class="form-control" />
-                <span asp-validation-for="CardAttribute" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardMonsterType" class="control-label"></label>
-                <input asp-for="CardMonsterType" class="form-control" />
-                <span asp-validation-for="CardMonsterType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardAttackValue" class="control-label"></label>
-                <input asp-for="CardAttackValue" class="form-control" />
-                <span asp-validation-for="CardAttackValue" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardDefenseValue" class="control-label"></label>
-                <input asp-for="CardDefenseValue" class="form-control" />
-                <span asp-validation-for="CardDefenseValue" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CardMonsterLevel" class="control-label"></label>
-                <input asp-for="CardMonsterLevel" class="form-control" />
-                <span asp-validation-for="CardMonsterLevel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+@if (ViewData["Message"] != null)
+{
+    <div class="alert alert-success">
+    @ViewData["Message"]
     </div>
-</div>
+}
+else
+{
 
+    <h1>Create a New Trading Card</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="CardCreate">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="CardName" class="control-label"></label>
+                    <input asp-for="CardName" class="form-control" />
+                    <span asp-validation-for="CardName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardType" class="control-label"></label>
+                    <input asp-for="CardType" class="form-control" />
+                    <span asp-validation-for="CardType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardDescription" class="control-label"></label>
+                    <input asp-for="CardDescription" class="form-control" />
+                    <span asp-validation-for="CardDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardEffect" class="control-label"></label>
+                    <input asp-for="CardEffect" class="form-control" />
+                    <span asp-validation-for="CardEffect" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardAttack1" class="control-label"></label>
+                    <input asp-for="CardAttack1" class="form-control" />
+                    <span asp-validation-for="CardAttack1" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardAttackCost1" class="control-label"></label>
+                    <input asp-for="CardAttackCost1" class="form-control" />
+                    <span asp-validation-for="CardAttackCost1" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardAttackDamage1" class="control-label"></label>
+                    <input asp-for="CardAttackDamage1" class="form-control" />
+                    <span asp-validation-for="CardAttackDamage1" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardAttackEffect1" class="control-label"></label>
+                    <input asp-for="CardAttackEffect1" class="form-control" />
+                    <span asp-validation-for="CardAttackEffect1" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardAttack2" class="control-label"></label>
+                    <input asp-for="CardAttack2" class="form-control" />
+                    <span asp-validation-for="CardAttack2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardAttackCost2" class="control-label"></label>
+                    <input asp-for="CardAttackCost2" class="form-control" />
+                    <span asp-validation-for="CardAttackCost2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardAttackDamage2" class="control-label"></label>
+                    <input asp-for="CardAttackDamage2" class="form-control" />
+                    <span asp-validation-for="CardAttackDamage2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardAttackEffect2" class="control-label"></label>
+                    <input asp-for="CardAttackEffect2" class="form-control" />
+                    <span asp-validation-for="CardAttackEffect2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardHP" class="control-label"></label>
+                    <input asp-for="CardHP" class="form-control" />
+                    <span asp-validation-for="CardHP" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardStage" class="control-label"></label>
+                    <input asp-for="CardStage" class="form-control" />
+                    <span asp-validation-for="CardStage" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardRetreatCost" class="control-label"></label>
+                    <input asp-for="CardRetreatCost" class="form-control" />
+                    <span asp-validation-for="CardRetreatCost" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardRuleBox" class="control-label"></label>
+                    <input asp-for="CardRuleBox" class="form-control" />
+                    <span asp-validation-for="CardRuleBox" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardAttribute" class="control-label"></label>
+                    <input asp-for="CardAttribute" class="form-control" />
+                    <span asp-validation-for="CardAttribute" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardMonsterType" class="control-label"></label>
+                    <input asp-for="CardMonsterType" class="form-control" />
+                    <span asp-validation-for="CardMonsterType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardAttackValue" class="control-label"></label>
+                    <input asp-for="CardAttackValue" class="form-control" />
+                    <span asp-validation-for="CardAttackValue" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardDefenseValue" class="control-label"></label>
+                    <input asp-for="CardDefenseValue" class="form-control" />
+                    <span asp-validation-for="CardDefenseValue" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CardMonsterLevel" class="control-label"></label>
+                    <input asp-for="CardMonsterLevel" class="form-control" />
+                    <span asp-validation-for="CardMonsterLevel" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
